@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anbarasu Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Playfair+Display:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #fafbff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,117,143,0.4), rgba(168,237,234,0.4));
+      border-radius: 50%;
+      filter: blur(25px);
+      z-index: 0;
+      animation: floatBlob 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatBlob {
+      0% { transform: translateX(-50%) translateY(0); }
+      100% { transform: translateX(-50%) translateY(15px); }
+    }
+
+    .profile-pic {
+      position: relative;
+      display: inline-block;
+      padding: 6px;
+      background: conic-gradient(from 180deg, #ff758f, #a8edea, #ff758f);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #2b2d42;
+      margin-top: 20px;
+    }
+    header p {
+      font-family: 'Space Mono', monospace;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 14px 0;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #eee;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #444;
+      transition: color 0.3s;
+      font-family: 'Space Mono', monospace;
+    }
+    nav a:hover {
+      color:brown;
+    }
+    nav a.active {
+      border-bottom: 3px solid #ff758f;
+      padding-bottom: 4px;
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: #2b2d42;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #ff758f;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ABOUT */
+    .about p {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* SKILLS */
+    .skills ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      list-style: none;
+      margin-top: 20px;
+    }
+    .skills li {
+      background: #ffecf0;
+      color: #444;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-family: 'Space Mono', monospace;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .skills li:hover {
+      transform: scale(1.05);
+      background: #ffd5dd;
+    }
+
+    /* PROJECTS */
+    .project-card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+    }
+    .project-card h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      font-family: 'Outfit', sans-serif;
+      color: #555;
+    }
+    .project-card a {
+      display: inline-block;
+      margin-top: 12px;
+      background: #ff758f;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      transition: background 0.3s;
+    }
+    .project-card a:hover {
+      background: #e05b73;
+    }
+
+    /* CONTACT */
+    .contact p {
+      text-align: center;
+      margin: 10px 0;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #2b2d42;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      font-family: 'Space Mono', monospace;
+      margin-top: 40px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      header h1 { font-size: 2.5rem; }
+      section { padding: 50px 15px; }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      header img { width: 140px; height: 140px; }
+      nav { gap: 15px; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.8rem; }
+      header p { font-size: 0.9rem; }
+      .skills ul { flex-direction: column; align-items: center; }
+      .skills li { width: 80%; text-align: center; }
+      nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="profile-pic">
+      <img src="image/abu.jfif" alt="Anbarasu Profile">
+    </div>
+    <h1>luv2425</h1>
+    <p>Web Designer & Developer</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>Hello! I am Anbarasu, a passionate Web Designer and Developer with experience in creating visually appealing and functional websites. I specialize in HTML, CSS, JavaScript, and the React framework. I’m committed to delivering clean, responsive designs that provide a seamless user experience.</p>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML5</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Web Design</li>
+      <li>Responsive Design</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Caminsta.com</h3>
+      <p>A modern and responsive website built to showcase creative content and provide an engaging user experience.</p>
+      <a href="https://caminsta.com" target="_blank">View Project</a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:anbuabu432@gmail.com">anbuabu432@gmail.com</a></p>
+    <p>Facebook: <a href="https://facebook.com/abuabu1234" target="_blank">abuabu 1234</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Anbarasu. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 60;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
